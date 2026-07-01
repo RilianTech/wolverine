@@ -1,0 +1,11 @@
+<Project>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <_AspNetCoreOpenApiReference Include="@(PackageReference->WithMetadataValue('Identity', 'Microsoft.AspNetCore.OpenApi'))" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0' And '@(_AspNetCoreOpenApiReference)' != ''">
+    <PackageReference Include="Microsoft.OpenApi" />
+  </ItemGroup>
+
+</Project>
